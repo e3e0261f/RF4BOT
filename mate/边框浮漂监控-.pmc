@@ -1,0 +1,62 @@
+﻿[PMC Globals]|None||
+[PMC Code v5.4.1]|F3||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro1
+Context=None|
+Groups=开始:1
+1|[LoopStart]|LoopStart|0|0|Loop|||||1|
+2|scan1|_null := |1|0|Function|||||3|
+3|Run|E:\1.vbs, E:\|1|0|Run|||||4|
+4|[Pause]|Random|1|90|Sleep|100||||5|
+5|scan2|_null := |1|0|Function|||||6|
+6|Run|E:\2.vbs, E:\|1|0|Run|||||7|
+7|[Pause]|Random|1|90|Sleep|100||||8|
+8|scan3|_null := |1|0|Function|||||9|
+9|Run|E:\3.vbs, E:\|1|0|Run|||||10|
+10|[Pause]|Random|1|90|Sleep|100||||11|
+11|Run|E:\rm.cmd, E:\|1|0|Run|||||12|
+12|[LoopEnd]|LoopEnd|1|0|Loop|||||13|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan1()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|scan1|1|0|UserFunction|Local| / |||1|
+2|Continue, Continue, FoundX, FoundY, 0|1947, 1105, 2174, 1270, *66 C:\Users\lee\Pictures\title.png|1|0|ImageSearch||Screen|||3|
+3|If Image/Pixel Not Found||1|0|If_Statement|||||5|
+4|Run|E:\1.vbs, E:\|1|0|Run|||||7|
+5|Run|E:\touch.cmd, E:\|1|0|Run|||||8|
+6|[End If]|EndIf|1|0|If_Statement|||||9|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan2()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|scan2|1|0|UserFunction|Local| / |||1|
+2|If File Exist|E:\togle.txt|1|0|If_Statement|||||3|
+03|SoundBeep||1|0|SoundBeep|||||5|
+4|\|{\ Down}|1|500|ControlSend||ahk_exe rf4_x64.exe|||7|
+5|RShift|{RShift Down}|1|500|ControlSend||ahk_exe rf4_x64.exe|||10|
+6|Enter|{Enter Down}|1|500|ControlSend||ahk_exe rf4_x64.exe|||12|
+7|[Pause]||1|9000|Sleep|||||14|
+8|SoundBeep||1|0|SoundBeep|||||15|
+9|\|{\ Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||16|
+10|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||17|
+11|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||18|
+12|Run|E:\rm.cmd, E:\|1|0|Run|||||19|
+13|[End If]|EndIf|1|0|If_Statement|||||20|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan3()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|scan3|1|0|UserFunction|Local| / |||1|
+2|[Pause]||1|300|Sleep|||||3|
+3|Space|{Space}|1|0|Send|||||4|
+4|[Pause]||1|300|Sleep|||||5|
+5|Space|{Space}|1|0|Send|||||6|
+6|[Pause]||1|300|Sleep|||||7|
+
+[PMC Code v5.4.1]|F7||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan4()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|scan4|1|0|UserFunction|Local| / |||1|
+2|Enter|{Enter Down}|1|0|Send|||||3|
+3|[Pause]|Random|1|950|Sleep|1050||||4|
+4|Enter|{Enter Up}|1|0|Send|||||5|
+

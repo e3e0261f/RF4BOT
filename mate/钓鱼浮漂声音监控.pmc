@@ -1,0 +1,26 @@
+﻿[PMC Globals]|None||
+[PMC Code v5.4.1]|F3||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro1
+Context=None|
+Groups=开始:1
+1|If Window Exist|ahk_exe rf4_x64.exe|1|0|If_Statement|||||1|
+2|SoundBeep||1|0|SoundBeep|||||3|
+3|[Assign Variable]|start := window|1|0|Variable|||||4|
+4|[End If]|EndIf|1|0|If_Statement|||||5|
+5|Continue, Continue, FoundX, FoundY, 0|1908, 1038, 2227, 1328, *33 *W2 *H119 C:\Users\lee\Documents\边框-竖条.png|1|0|ImageSearch||Screen|||6|
+6|If Image/Pixel Found||1|0|If_Statement|||||8|
+7|SoundBeep||1|0|SoundBeep|||||10|
+8|[Assign Variable]|scan := kuang|1|0|Variable|Expression||||11|
+9|[End If]|EndIf|1|0|If_Statement|||||12|
+10|Compare Variables|start = window|1|0|If_Statement|||||13|
+11|SoundBeep||1|0|SoundBeep|||||15|
+12|Compare Variables|scan = kuang|1|0|If_Statement|||||16|
+13|SoundBeep||1|0|SoundBeep|||||18|
+14|[LoopStart]|LoopStart|0|0|Loop|||||19|
+15|SoundBeep||1|0|SoundBeep|||||21|
+16|Continue, Play Sound, AAA, BBB|1986, 1094, 2129, 1172, 0x9D0101, 77, Fast RGB|1|0|PixelSearch||Screen|||22|
+17|[Pause]|Random|1|500|Sleep|700||||27|
+18|Continue, Play Sound, FoundX, FoundY, 0|1993, 1100, 2132, 1176, *88 *Trans0xF95200 C:\Users\lee\Pictures\title.png|1|0|ImageSearch||Screen|||28|
+19|[LoopEnd]|LoopEnd|1|0|Loop|||||33|
+20|[End If]|EndIf|1|0|If_Statement|||||34|
+21|[End If]|EndIf|1|0|If_Statement|||||35|
+

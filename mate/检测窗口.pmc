@@ -1,0 +1,10 @@
+﻿[PMC Globals]|None||
+[PMC Code v5.4.1]|F3||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro1
+Context=None|
+Groups=Start:1
+1|If Window Exist|Russsian Fishing 4|1|0|If_Statement|||||1|
+2|Continue, Continue, FoundX, FoundY, 0|1914, 1018, 2219, 1325, *66 C:\Users\lee\Documents\边框.png|1|0|ImageSearch||Screen|||3|
+3|If Image/Pixel Found||1|0|If_Statement|||||5|
+4|[End If]|EndIf|1|0|If_Statement|||||7|
+5|[End If]|EndIf|1|0|If_Statement|||||8|
+
