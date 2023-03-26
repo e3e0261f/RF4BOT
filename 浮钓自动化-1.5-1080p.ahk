@@ -24,7 +24,7 @@ If (ErrorLevel = 0)
     scan4()
 }
 Sleep, 200
-Run, mate\1.vbs
+beep()
 Loop
 {
     scan1()
@@ -86,7 +86,7 @@ scan1()
 
 scan2()
 {
-    Run, mate\2.vbs
+    beep()
     scan21()
     Sleep, 333
     scan4()
@@ -148,7 +148,7 @@ scan21()
 
 scan3()
 {
-    Run, mate\3.vbs
+    beep()
     CoordMode, Pixel, Screen
     ImageSearch, FoundX, FoundY, 551, 79, 1323, 229, *5 mate\星1.png
     If (ErrorLevel)
@@ -188,7 +188,7 @@ scan3()
 
 scan4()
 {
-    Run, mate\4.vbs
+    beep()
     CoordMode, Pixel, Screen
     ImageSearch, FoundX, FoundY, 626, 965, 759, 1005, *88 mate\T.png
     If (ErrorLevel = 0)
@@ -269,6 +269,13 @@ outloop()
     }
 }
 
+beep()
+{
+    SoundBeep, 7777, 33
+    SoundBeep, 4444, 33
+    SoundBeep, 7777, 33
+}
+
 
 F8::ExitApp
 
@@ -300,7 +307,7 @@ Groups=开始:1
 3|scan4|_null := |1|0|Function|||||5|
 4|[End If]|EndIf|1|0|If_Statement|||||6|
 5|[Pause]||1|200|Sleep|||||7|
-6|Run|mate\1.vbs|1|0|Run|||||8|
+6|beep|_null := |1|0|Function|||||8|
 7|[LoopStart]|LoopStart|0|0|Loop|||||9|
 8|scan1|_null := |1|0|Function|||||11|
 9|[LoopEnd]|LoopEnd|1|0|Loop|||||12|
@@ -324,7 +331,7 @@ Groups=Start:1
 Context=None|
 Groups=Start:1
 1|[FunctionStart]|scan1|1|0|UserFunction|Local| / |||1|
-02|Run|mate\1.vbs|1|0|Run|||||8|
+02|Run|mate\1.vbs|1|0|Run|||||3|
 3|Continue, Continue, FoundX, FoundY|1345, 710, 1494, 784, 0xFF0201, 88, Fast RGB|1|0|PixelSearch||Screen|||3|
 4|If Image/Pixel Not Found||1|0|If_Statement|||||5|
 5|[Pause]|NoRandom|1|400|Sleep|||||7|
@@ -347,7 +354,7 @@ Groups=Start:1
 Context=None|
 Groups=Start:1
 1|[FunctionStart]|scan2|1|0|UserFunction|Local| / |||1|
-2|Run|mate\2.vbs|1|0|Run|||||8|
+2|beep|_null := |1|0|Function|||||8|
 3|scan21|_null := |1|0|Function|||||3|
 4|[Pause]|NoRandom|1|333|Sleep|||||4|
 5|scan4|_null := |1|0|Function|||||5|
@@ -401,7 +408,7 @@ Groups=Start:1
 Context=None|
 Groups=Start:1
 1|[FunctionStart]|scan3|1|0|UserFunction|Local| / |||1|
-2|Run|mate\3.vbs|1|0|Run|||||8|
+2|beep|_null := |1|0|Function|||||8|
 3|Continue, Continue, FoundX, FoundY, 0|551, 79, 1323, 229, *5 mate\星1.png|1|0|ImageSearch||Screen|||3|
 4|If Image/Pixel Not Found||1|0|If_Statement|||||5|
 5|Continue, Continue, FoundX, FoundY, 0|612, 72, 1286, 236, *5 mate\标1.png|1|0|ImageSearch||Screen|||7|
@@ -434,7 +441,7 @@ Groups=Start:1
 Context=None|
 Groups=Start:1
 1|[FunctionStart]|scan4|1|0|UserFunction|Local| / |||1|
-2|Run|mate\4.vbs|1|0|Run|||||8|
+2|beep|_null := |1|0|Function|||||8|
 3|Continue, Continue, FoundX, FoundY, 0|626, 965, 759, 1005, *88 mate\T.png|1|0|ImageSearch||Screen|||3|
 4|If Image/Pixel Found||1|0|If_Statement|||||5|
 5|Enter|{Enter Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||7|
@@ -503,5 +510,13 @@ Groups=Start:1
 08|[Pause]|Random|1|3333|Sleep|3344||||11|
 9|Continue, Continue, FoundX, FoundY, 1|1361, 707, 1483, 870, *22 mate\自重blue.png|1|0|ImageSearch||Screen|||11|
 10|[End If]|EndIf|1|0|If_Statement|||||14|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|beep()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|beep|1|0|UserFunction|Local| / |||1|
+2|SoundBeep|7777, 33|1|0|SoundBeep|||||12|
+3|SoundBeep|4444, 33|1|0|SoundBeep|||||13|
+4|SoundBeep|7777, 33|1|0|SoundBeep|||||14|
 
 */

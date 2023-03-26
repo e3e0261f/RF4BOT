@@ -1,2 +1,2 @@
 set ws=WScript.CreateObject("WScript.Shell")
-ws.Run "e:\2.cmd",0
+ws.Run "2.cmd",0
