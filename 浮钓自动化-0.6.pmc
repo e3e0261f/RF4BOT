@@ -1,0 +1,122 @@
+﻿[PMC Globals]|None|ahk_exe rf4_x64.exe|
+[PMC Code v5.4.1]|F3||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro1
+Context=None|
+Groups=开始:1
+1|scan4|_null := |1|0|Function|||||1|
+2|[LoopStart]|LoopStart|0|0|Loop|||||2|
+03|Run|E:\1.vbs, E:\|1|0|Run|||||4|
+4|scan1|_null := |1|0|Function|||||4|
+5|[Pause]||1|200|Sleep|||||5|
+6|[LoopEnd]|LoopEnd|1|0|Loop|||||6|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan1()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|scan1|1|0|UserFunction|Local| / |||1|
+02|Run|E:\1.vbs, E:\|1|0|Run|||||3|
+3|Continue, Continue, FoundX, FoundY, 0|1947, 1105, 2174, 1270, *66 C:\Users\lee\Pictures\title.png|1|0|ImageSearch||Screen|||5|
+4|If Image/Pixel Not Found||1|0|If_Statement|||||8|
+5|scan2|_null := |1|0|Function|||||10|
+6|[End If]|EndIf|1|0|If_Statement|||||11|
+7|If Image/Pixel Found||1|0|If_Statement|||||12|
+8|[Assign Variable]|godone := 0|1|0|Variable|Expression||||14|
+9|Evaluate Expression|go1=20|1|0|If_Statement|||||15|
+10|[Add Variable]|eat1 += 1|1|0|Variable|Expression||||17|
+11|[End If]|EndIf|1|0|If_Statement|||||18|
+12|[End If]|EndIf|1|0|If_Statement|||||19|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan2()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|scan2|1|0|UserFunction|Local| / |||1|
+2|Run|E:\2.vbs, E:\|1|0|Run|||||3|
+3|scan21|_null := |1|0|Function|||||4|
+4|[Pause]||1|300|Sleep|||||5|
+5|scan4|_null := |1|0|Function|||||6|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan21()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|scan21|1|0|UserFunction|Local| / |||1|
+2|[Assign Variable]|a := 0|1|0|Variable|Expression||||3|
+3|[Assign Variable]|{Enter Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||4|
+4|[LoopStart]|LoopStart|0|0|Loop|godone=1||||5|
+5|\|{\ Down}|1|100|ControlSend||ahk_exe rf4_x64.exe|||7|
+6|RShift|{RShift Down}|1|500|ControlSend||ahk_exe rf4_x64.exe|||9|
+7|Enter|{Enter Down}|1|500|ControlSend||ahk_exe rf4_x64.exe|||11|
+8|SoundBeep|120, 100|1|0|SoundBeep|||||13|
+9|[Add Variable]|go1 += 1|1|0|Variable|Expression||||14|
+10|Evaluate Expression|go1=%go2%|1|0|If_Statement|||||15|
+11|\|{\ Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||17|
+12|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||18|
+13|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||19|
+14|[Assign Variable]|godone := 1|1|0|Variable|Expression||||20|
+15|[Pause]|Random|1|3333|Sleep|3344||||21|
+16|[End If]|EndIf|1|0|If_Statement|||||22|
+17|Continue, Continue, FoundX, FoundY, 0|0, 0, 2560, 1399, C:\Users\lee\Documents\经验点数.png|1|0|ImageSearch||Window|||23|
+18|If Image/Pixel Found||1|0|If_Statement|||||25|
+19|\|{\ Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||27|
+20|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||28|
+21|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||29|
+22|[Assign Variable]|godone := 1|1|0|Variable|Expression||||30|
+23|[Pause]||1|300|Sleep|||||31|
+24|scan3|_null := |1|0|Function|||||32|
+25|[End If]|EndIf|1|0|If_Statement|||||33|
+26|[LoopEnd]|LoopEnd|1|0|Loop|||||34|
+27|[Assign Variable]|godone := 0|1|0|Variable|Expression||||36|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan3()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|scan3|1|0|UserFunction|Local| / |||1|
+2|Run|E:\3.vbs, E:\|1|0|Run|||||3|
+3|Continue, Continue, FoundX, FoundY, 0|929, 78, 1635, 333, *77 C:\Users\lee\Documents\达标.png|1|0|ImageSearch||Window|||4|
+4|If Image/Pixel Found||1|0|If_Statement|||||6|
+5|SoundBeep|140, 100|1|0|SoundBeep|||||8|
+6|[Pause]||1|300|Sleep|||||9|
+7|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||10|
+8|[Pause]||1|300|Sleep|||||11|
+9|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||12|
+10|[Pause]||1|300|Sleep|||||13|
+11|[End If]|EndIf|1|0|If_Statement|||||14|
+12|If Image/Pixel Not Found||1|0|If_Statement|||||15|
+13|SoundBeep|188, 100|1|0|SoundBeep|||||17|
+14|[Pause]||1|300|Sleep|||||18|
+15|Left Click|Left, 1,  x1301 y1046 NA|1|10|ControlClick||ahk_exe rf4_x64.exe|||19|
+16|[Pause]||1|300|Sleep|||||21|
+17|Backspace|{Backspace}|1|0|ControlSend||ahk_exe rf4_x64.exe|||22|
+18|[End If]|EndIf|1|0|If_Statement|||||23|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan4()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|scan4|1|0|UserFunction|Local| / |||1|
+2|Run|E:\4.vbs, E:\|1|0|Run|||||3|
+3|eat|_null := |1|0|Function|||||4|
+4|Enter|{Enter Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||5|
+5|[Pause]|Random|1|900|Sleep|950||||6|
+6|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||7|
+7|[Pause]||1|3500|Sleep|||||8|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|eat()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|eat|1|0|UserFunction|Local| / |||1|
+2|[Add Variable]|eat1 += 1|1|0|Variable|Expression||||3|
+3|Compare Variables|eat1 = 50|1|0|If_Statement|||||4|
+4|4|{4}|1|222|Send|||||6|
+5|[Pause]||1|300|Sleep|||||8|
+6|5|{5}|1|222|Send|||||9|
+7|[End If]|EndIf|1|0|If_Statement|||||11|
+8|[Assign Variable]|eat1 := 0|1|0|Variable|Expression||||12|
+
+[PMC Code v5.4.1]|F5||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro8
+Context=None|
+Groups=Start:1
+1|[Assign Variable]|go2 := 10|1|0|Variable|Expression||||1|
+
+[PMC Code v5.4.1]|F6||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro9
+Context=None|
+Groups=Start:1
+1|[Assign Variable]|go2 := 20|1|0|Variable|Expression||||1|
+

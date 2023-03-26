@@ -1,0 +1,138 @@
+﻿[PMC Globals]|None|ahk_exe rf4_x64.exe|
+[PMC Code v5.4.1]|F3||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro1
+Context=None|
+Groups=开始:1
+1|scan4|_null := |1|0|Function|||||1|
+2|[LoopStart]|LoopStart|0|0|Loop|||||2|
+03|Run|E:\1.vbs, E:\|1|0|Run|||||4|
+4|scan1|_null := |1|0|Function|||||4|
+5|[Pause]||1|200|Sleep|||||5|
+6|[LoopEnd]|LoopEnd|1|0|Loop|||||6|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan1()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|scan1|1|0|UserFunction|Local| / |||1|
+02|Run|E:\1.vbs, E:\|1|0|Run|||||3|
+3|Continue, Continue, FoundX, FoundY, 0|1947, 1105, 2174, 1270, *66 C:\Users\lee\Pictures\title.png|1|0|ImageSearch||Screen|||3|
+4|If Image/Pixel Not Found||1|0|If_Statement|||||5|
+5|If Window Not Active|ahk_exe rf4_x64.exe|1|0|If_Statement|||||7|
+6|[Control]|Show, |1|0|Control||ahk_exe rf4_x64.exe|||9|
+7|[End If]|EndIf|1|0|If_Statement|||||10|
+8|scan2|_null := |1|0|Function|||||11|
+9|[End If]|EndIf|1|0|If_Statement|||||12|
+10|If Image/Pixel Found||1|0|If_Statement|||||13|
+11|[Assign Variable]|godone := 0|1|0|Variable|Expression||||15|
+12|eat|_null := |1|0|Function|||||16|
+13|[End If]|EndIf|1|0|If_Statement|||||17|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan2()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|scan2|1|0|UserFunction|Local| / |||1|
+2|Run|E:\2.vbs, E:\|1|0|Run|||||3|
+3|scan21|_null := |1|0|Function|||||4|
+4|[Pause]||1|300|Sleep|||||5|
+5|scan4|_null := |1|0|Function|||||6|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan21()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|scan21|1|0|UserFunction|Local|go2 / |||1|
+2|[Assign Variable]|a := 0|1|0|Variable|Expression||||4|
+3|[Assign Variable]|{Enter Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||5|
+4|Control|{Control Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||6|
+5|\|{\ Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||7|
+6|RShift|{RShift Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||8|
+7|Enter|{Enter Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||9|
+8|[Pause]||1|500|Sleep|||||10|
+9|Control|{Control Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||11|
+10|\|{\ Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||12|
+11|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||13|
+12|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||14|
+13|[Pause]||1|50|Sleep|||||15|
+14|[LoopStart]|LoopStart|0|0|Loop|godone=1||||16|
+15|\|{\ Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||18|
+16|RShift|{RShift Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||19|
+17|Enter|{Enter Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||20|
+18|SoundBeep|120, 100|1|0|SoundBeep|||||21|
+19|[Add Variable]|go1 += 1|1|0|Variable|Expression||||22|
+20|[Pause]||1|999|Sleep|||||23|
+21|Evaluate Expression|go1=10|1|0|If_Statement|||||24|
+22|[Pause]|Random|1|333|Sleep|444||||26|
+23|\|{\ Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||27|
+24|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||28|
+25|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||29|
+26|[Assign Variable]|godone := 1|1|0|Variable|Expression||||30|
+027|[Pause]|Random|1|3333|Sleep|3344||||31|
+28|[End If]|EndIf|1|0|If_Statement|||||32|
+29|Continue, Continue, FoundX, FoundY, 0|0, 0, 2560, 1399, C:\Users\lee\Documents\经验点数.png|1|0|ImageSearch||Window|||33|
+30|If Image/Pixel Found||1|0|If_Statement|||||35|
+31|\|{\ Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||37|
+32|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||38|
+33|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||39|
+34|[Assign Variable]|godone := 1|1|0|Variable|Expression||||40|
+35|[Pause]||1|300|Sleep|||||41|
+36|scan3|_null := |1|0|Function|||||42|
+37|[End If]|EndIf|1|0|If_Statement|||||43|
+38|[LoopEnd]|LoopEnd|1|0|Loop|||||44|
+39|[Assign Variable]|godone := 0|1|0|Variable|Expression||||46|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan3()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|scan3|1|0|UserFunction|Local| / |||1|
+2|Run|E:\3.vbs, E:\|1|0|Run|||||3|
+3|Continue, Continue, FoundX, FoundY, 0|929, 78, 1635, 333, *77 C:\Users\lee\Documents\达标.png|1|0|ImageSearch||Window|||4|
+4|If Image/Pixel Found||1|0|If_Statement|||||6|
+5|SoundBeep|140, 100|1|0|SoundBeep|||||8|
+6|[Pause]||1|300|Sleep|||||9|
+7|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||10|
+8|[Pause]||1|300|Sleep|||||11|
+9|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||12|
+10|[Pause]||1|300|Sleep|||||13|
+11|[End If]|EndIf|1|0|If_Statement|||||14|
+12|If Image/Pixel Not Found||1|0|If_Statement|||||15|
+13|SoundBeep|188, 100|1|0|SoundBeep|||||17|
+14|[Pause]||1|300|Sleep|||||18|
+15|Left Click|Left, 1,  x1301 y1046 NA|1|10|ControlClick||ahk_exe rf4_x64.exe|||19|
+16|[Pause]||1|300|Sleep|||||21|
+17|Backspace|{Backspace}|1|0|ControlSend||ahk_exe rf4_x64.exe|||22|
+018|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||12|
+19|[End If]|EndIf|1|0|If_Statement|||||23|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan4()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|scan4|1|0|UserFunction|Local| / |||1|
+2|Run|E:\4.vbs, E:\|1|0|Run|||||3|
+3|eat|_null := |1|0|Function|||||4|
+4|Enter|{Enter Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||5|
+5|[Pause]|Random|1|900|Sleep|950||||6|
+6|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||7|
+7|[Pause]||1|3500|Sleep|||||8|
+8|eat|_null := |1|0|Function|||||9|
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|eat()
+Context=None|
+Groups=Start:1
+1|[FunctionStart]|eat|1|0|UserFunction|Local| / |||1|
+02|SoundBeep|88, 33|1|0|SoundBeep|||||3|
+3|Continue, Continue, FoundX, FoundY|-240, 1188, -209, 1208, 0x90270F, 11, Fast RGB|1|0|PixelSearch||Screen|||3|
+4|If Image/Pixel Found||1|0|If_Statement|||||5|
+5|SoundBeep|88, 33|1|0|SoundBeep|||||7|
+6|[Control]|Check, |1|0|Control||ahk_exe rf4_x64.exe|||8|
+7|SoundBeep|88, 33|1|0|SoundBeep|||||9|
+8|[Pause]||1|300|Sleep|||||10|
+9|[End If]|EndIf|1|0|If_Statement|||||12|
+10|[Pause]||1|300|Sleep|||||13|
+11|Continue, Continue, FoundX, FoundY|191, 1349, 219, 1383, 0x90270F, 11, Fast RGB|1|0|PixelSearch||Screen|||14|
+12|If Image/Pixel Found||1|0|If_Statement|||||16|
+13|[Pause]||1|100|Sleep|||||18|
+14|SoundBeep|88, 33|1|0|SoundBeep|||||19|
+15|SoundBeep|88, 33|1|0|SoundBeep|||||20|
+16|5|{5}|1|222|Send|||||21|
+17|[End If]|EndIf|1|0|If_Statement|||||23|
+18|[Control]|Show, |1|0|Control||ahk_exe rf4_x64.exe|||24|
+19|[Pause]||1|500|Sleep|||||15|
+

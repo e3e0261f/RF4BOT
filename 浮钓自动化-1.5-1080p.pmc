@@ -31,33 +31,35 @@ Groups=Start:1
 Context=None|
 Groups=Start:1
 1|[FunctionStart]|scan1|1|0|UserFunction|Local| / |||1|
-02|Run|mate\1.vbs|1|0|Run|||||3|
+02|beep|_null := |1|0|Function|||||3|
 3|Continue, Continue, FoundX, FoundY|1345, 710, 1494, 784, 0xFF0201, 88, Fast RGB|1|0|PixelSearch||Screen|||3|
 4|If Image/Pixel Not Found||1|0|If_Statement|||||5|
-5|[Pause]|NoRandom|1|400|Sleep|||||7|
+5|[Pause]|NoRandom|1|222|Sleep|||||7|
 6|Continue, Continue, FoundX, FoundY, 1|1245, 710, 1494, 784, *88 mate\自重漂z1.png|1|0|ImageSearch||Screen|||8|
-7|Continue, Continue, FoundX, FoundY, 1|1245, 710, 1494, 784, *88 mate\自重漂z1.png|1|0|ImageSearch||Screen|||11|
-8|If Image/Pixel Not Found||1|0|If_Statement|||||14|
-9|SoundBeep|4444, 33|1|0|SoundBeep|||||16|
-10|SoundBeep|4444, 33|1|0|SoundBeep|||||17|
-11|WinActivate||1|0|WinActivate||ahk_exe rf4_x64.exe|||18|
-12|Enter|{Enter Up}|1|0|Send|||||19|
-13|scan2|_null := |1|0|Function|||||20|
-14|[End If]|EndIf|1|0|If_Statement|||||21|
-15|[End If]|EndIf|1|0|If_Statement|||||22|
-16|Continue, Continue, FoundX, FoundY, 0|612, 74, 1305, 227, *5 mate\标1.png|1|0|ImageSearch||Screen|||23|
-17|If Image/Pixel Found||1|0|If_Statement|||||25|
-18|[Assign Variable]|godone := 0|1|0|Variable|Expression||||27|
-19|[End If]|EndIf|1|0|If_Statement|||||28|
+7|If Image/Pixel Not Found||1|0|If_Statement|||||11|
+8|[Pause]|NoRandom|1|222|Sleep|||||13|
+9|Continue, Continue, FoundX, FoundY, 1|1245, 710, 1494, 784, *88 mate\自重漂z1.png|1|0|ImageSearch||Screen|||14|
+10|If Image/Pixel Not Found||1|0|If_Statement|||||17|
+11|beep|_null := |1|0|Function|||||19|
+12|WinActivate||1|0|WinActivate||ahk_exe rf4_x64.exe|||20|
+13|Enter|{Enter Up}|1|0|Send|||||21|
+14|scan2|_null := |1|0|Function|||||22|
+15|[End If]|EndIf|1|0|If_Statement|||||23|
+16|[End If]|EndIf|1|0|If_Statement|||||24|
+17|[End If]|EndIf|1|0|If_Statement|||||25|
+18|Continue, Continue, FoundX, FoundY, 0|612, 74, 1305, 227, *5 mate\标1.png|1|0|ImageSearch||Screen|||26|
+19|If Image/Pixel Found||1|0|If_Statement|||||28|
+20|[Assign Variable]|godone := 0|1|0|Variable|Expression||||30|
+21|[End If]|EndIf|1|0|If_Statement|||||31|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan2()
 Context=None|
 Groups=Start:1
 1|[FunctionStart]|scan2|1|0|UserFunction|Local| / |||1|
-2|beep|_null := |1|0|Function|||||8|
-3|scan21|_null := |1|0|Function|||||3|
-4|[Pause]|NoRandom|1|333|Sleep|||||4|
-5|scan4|_null := |1|0|Function|||||5|
+2|beep|_null := |1|0|Function|||||3|
+3|scan21|_null := |1|0|Function|||||4|
+4|[Pause]|NoRandom|1|333|Sleep|||||5|
+5|scan4|_null := |1|0|Function|||||6|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan21()
 Context=None|
@@ -108,51 +110,51 @@ Groups=Start:1
 Context=None|
 Groups=Start:1
 1|[FunctionStart]|scan3|1|0|UserFunction|Local| / |||1|
-2|beep|_null := |1|0|Function|||||8|
-3|Continue, Continue, FoundX, FoundY, 0|551, 79, 1323, 229, *5 mate\星1.png|1|0|ImageSearch||Screen|||3|
-4|If Image/Pixel Not Found||1|0|If_Statement|||||5|
-5|Continue, Continue, FoundX, FoundY, 0|612, 72, 1286, 236, *5 mate\标1.png|1|0|ImageSearch||Screen|||7|
-6|If Image/Pixel Found||1|0|If_Statement|||||9|
-7|SoundBeep|140, 100|1|0|SoundBeep|||||11|
-8|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||12|
-9|[Pause]||1|300|Sleep|||||13|
-10|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||14|
-11|[End If]|EndIf|1|0|If_Statement|||||15|
-12|If Image/Pixel Not Found||1|0|If_Statement|||||16|
-13|SoundBeep|4444, 33|1|0|SoundBeep|||||18|
-14|SoundBeep|4444, 33|1|0|SoundBeep|||||19|
-15|[Pause]||1|300|Sleep|||||20|
-16|Continue, Continue, FoundX, FoundY, 0|612, 74, 1305, 227, *5 mate\标1.png|1|0|ImageSearch||Screen|||21|
-17|If Image/Pixel Not Found||1|0|If_Statement|||||23|
-18|SoundBeep|188, 100|1|0|SoundBeep|||||25|
-19|[Pause]||1|300|Sleep|||||26|
-20|Backspace|{Backspace}|1|0|ControlSend||ahk_exe rf4_x64.exe|||27|
-21|[End If]|EndIf|1|0|If_Statement|||||28|
-22|[End If]|EndIf|1|0|If_Statement|||||29|
-23|[End If]|EndIf|1|0|If_Statement|||||30|
-24|If Image/Pixel Found||1|0|If_Statement|||||31|
-25|SoundBeep|140, 100|1|0|SoundBeep|||||33|
-26|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||34|
-27|[Pause]||1|300|Sleep|||||35|
-28|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||36|
-29|[End If]|EndIf|1|0|If_Statement|||||37|
+2|beep|_null := |1|0|Function|||||3|
+3|Continue, Continue, FoundX, FoundY, 0|551, 79, 1323, 229, *5 mate\星1.png|1|0|ImageSearch||Screen|||4|
+4|If Image/Pixel Not Found||1|0|If_Statement|||||6|
+5|Continue, Continue, FoundX, FoundY, 0|612, 72, 1286, 236, *5 mate\标1.png|1|0|ImageSearch||Screen|||8|
+6|If Image/Pixel Found||1|0|If_Statement|||||10|
+7|SoundBeep|140, 100|1|0|SoundBeep|||||12|
+8|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||13|
+9|[Pause]||1|300|Sleep|||||14|
+10|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||15|
+11|[End If]|EndIf|1|0|If_Statement|||||16|
+12|If Image/Pixel Not Found||1|0|If_Statement|||||17|
+13|SoundBeep|4444, 33|1|0|SoundBeep|||||19|
+14|SoundBeep|4444, 33|1|0|SoundBeep|||||20|
+15|[Pause]||1|300|Sleep|||||21|
+16|Continue, Continue, FoundX, FoundY, 0|612, 74, 1305, 227, *5 mate\标1.png|1|0|ImageSearch||Screen|||22|
+17|If Image/Pixel Not Found||1|0|If_Statement|||||24|
+18|SoundBeep|188, 100|1|0|SoundBeep|||||26|
+19|[Pause]||1|300|Sleep|||||27|
+20|Backspace|{Backspace}|1|0|ControlSend||ahk_exe rf4_x64.exe|||28|
+21|[End If]|EndIf|1|0|If_Statement|||||29|
+22|[End If]|EndIf|1|0|If_Statement|||||30|
+23|[End If]|EndIf|1|0|If_Statement|||||31|
+24|If Image/Pixel Found||1|0|If_Statement|||||32|
+25|SoundBeep|140, 100|1|0|SoundBeep|||||34|
+26|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||35|
+27|[Pause]||1|300|Sleep|||||36|
+28|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||37|
+29|[End If]|EndIf|1|0|If_Statement|||||38|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan4()
 Context=None|
 Groups=Start:1
 1|[FunctionStart]|scan4|1|0|UserFunction|Local| / |||1|
-2|beep|_null := |1|0|Function|||||8|
-3|Continue, Continue, FoundX, FoundY, 0|626, 965, 759, 1005, *88 mate\T.png|1|0|ImageSearch||Screen|||3|
-4|If Image/Pixel Found||1|0|If_Statement|||||5|
-5|Enter|{Enter Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||7|
-6|[Pause]|Random|1|444|Sleep|666||||8|
-7|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||9|
-8|[End If]|EndIf|1|0|If_Statement|||||10|
-9|[Pause]||1|4200|Sleep|||||11|
-10|SoundBeep|7777, 33|1|0|SoundBeep|||||12|
-11|SoundBeep|4444, 33|1|0|SoundBeep|||||13|
-12|SoundBeep|7777, 33|1|0|SoundBeep|||||14|
-13|eat|_null := |1|0|Function|||||15|
+2|beep|_null := |1|0|Function|||||3|
+3|Continue, Continue, FoundX, FoundY, 0|626, 965, 759, 1005, *88 mate\T.png|1|0|ImageSearch||Screen|||4|
+4|If Image/Pixel Found||1|0|If_Statement|||||6|
+5|Enter|{Enter Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||8|
+6|[Pause]|Random|1|444|Sleep|555||||9|
+7|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||10|
+8|[End If]|EndIf|1|0|If_Statement|||||11|
+9|[Pause]||1|4200|Sleep|||||12|
+10|SoundBeep|7777, 33|1|0|SoundBeep|||||13|
+11|SoundBeep|4444, 33|1|0|SoundBeep|||||14|
+12|SoundBeep|7777, 33|1|0|SoundBeep|||||15|
+13|eat|_null := |1|0|Function|||||16|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|eat()
 Context=None|
