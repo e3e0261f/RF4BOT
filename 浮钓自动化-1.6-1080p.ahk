@@ -24,6 +24,8 @@ If (ErrorLevel = 0)
     scan4()
 }
 Sleep, 200
+ToolTip, 程序开始, A_ScreenWidth // 2, A_ScreenHeight // 2
+Sleep, 250
 beep()
 Loop
 {
@@ -51,6 +53,8 @@ Loop
     If (ErrorLevel = 0)
     {
     }
+    ToolTip, 程序开始, A_ScreenHeight // 2, A_ScreenWidth // 2
+    Sleep, 250
 }
 Return
 
@@ -153,6 +157,8 @@ scan3()
             ControlSend, , {Space}, ahk_exe rf4_x64.exe
             Sleep, 300
             ControlSend, , {Space}, ahk_exe rf4_x64.exe
+            ToolTip, 入户, A_ScreenWidth // 2, A_ScreenHeight // 2
+            Sleep, 250
         }
         If (ErrorLevel)
         {
@@ -166,6 +172,8 @@ scan3()
                 SoundBeep, 188, 100
                 Sleep, 300
                 ControlSend, , {Backspace}, ahk_exe rf4_x64.exe
+                ToolTip, 丢弃, A_ScreenWidth // 2, A_ScreenHeight // 2
+                Sleep, 250
             }
         }
     }
@@ -180,6 +188,8 @@ scan3()
 
 scan4()
 {
+    ToolTip, 抛竿, A_ScreenWidth // 2, A_ScreenHeight // 2
+    Sleep, 250
     CoordMode, Pixel, Screen
     ImageSearch, FoundX, FoundY, 626, 965, 759, 1005, *88 mate\T.png
     If (ErrorLevel = 0)
@@ -197,6 +207,8 @@ scan4()
 
 eat()
 {
+    ToolTip, 吃东西, A_ScreenWidth // 2, A_ScreenHeight // 2
+    Sleep, 250
     CoordMode, Pixel, Screen
     ImageSearch, FoundX, FoundY, 188, 931, 220, 952, *22 mate\红条.png
     If (ErrorLevel = 0)
@@ -234,6 +246,8 @@ done()
         ImageSearch, FoundX, FoundY, 1229, 959, 1245, 966, *77 C:\cygwin64\home\lee\RF4BOT\mate\准备完毕.png
         If (ErrorLevel = 0)
         {
+            ToolTip, 线收完毕, A_ScreenWidth // 2, A_ScreenHeight // 2
+            Sleep, 250
             Sleep, 300
             ControlSend, , {\ Up}, ahk_exe rf4_x64.exe
             ControlSend, , {RShift Up}, ahk_exe rf4_x64.exe
@@ -256,6 +270,8 @@ outloop()
     global godone, go1
     If (go1=9000)
     {
+        ToolTip, 收线超时, A_ScreenWidth // 2, A_ScreenHeight // 2
+        Sleep, 250
         Sleep, 333
         ControlSend, , {RShift Up}, ahk_exe rf4_x64.exe
         ControlSend, , {Enter Up}, ahk_exe rf4_x64.exe
@@ -267,8 +283,8 @@ outloop()
 beep()
 {
     SoundBeep, 7777, 33
-    SoundBeep, 4444, 33
-    SoundBeep, 7777, 33
+    ToolTip, 入户, A_ScreenWidth // 2, A_ScreenHeight // 2
+    Sleep, 250
 }
 
 
@@ -302,10 +318,11 @@ Groups=开始:1
 3|scan4|_null := |1|0|Function|||||5|
 4|[End If]|EndIf|1|0|If_Statement|||||6|
 5|[Pause]||1|200|Sleep|||||7|
-6|beep|_null := |1|0|Function|||||8|
-7|[LoopStart]|LoopStart|0|0|Loop|||||9|
-8|scan1|_null := |1|0|Function|||||11|
-9|[LoopEnd]|LoopEnd|1|0|Loop|||||12|
+6|ToolTip|程序开始, A_ScreenWidth // 2, A_ScreenHeight // 2|1|250|ToolTip|||||8|
+7|beep|_null := |1|0|Function|||||10|
+8|[LoopStart]|LoopStart|0|0|Loop|||||11|
+9|scan1|_null := |1|0|Function|||||13|
+10|[LoopEnd]|LoopEnd|1|0|Loop|||||14|
 
 [PMC Code v5.4.1]|F2||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro2
 Context=None|
@@ -319,7 +336,8 @@ Groups=Start:1
 7|[End If]|EndIf|1|0|If_Statement|||||15|
 8|If Image/Pixel Found||1|0|If_Statement|||||16|
 9|[End If]|EndIf|1|0|If_Statement|||||18|
-10|[LoopEnd]|LoopEnd|1|0|Loop|||||19|
+10|ToolTip|程序开始, A_ScreenHeight // 2, A_ScreenWidth // 2|1|250|ToolTip|||||3|
+11|[LoopEnd]|LoopEnd|1|0|Loop|||||19|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan1()
 Context=None|
@@ -400,73 +418,77 @@ Context=None|
 Groups=Start:1
 1|[FunctionStart]|scan3|1|0|UserFunction|Local| / |||1|
 02|beep|_null := |1|0|Function|||||3|
-3|Continue, Continue, FoundX, FoundY, 0|551, 79, 1323, 229, *5 mate\星1.png|1|0|ImageSearch||Screen|||3|
-4|If Image/Pixel Not Found||1|0|If_Statement|||||5|
-5|Continue, Continue, FoundX, FoundY, 0|612, 72, 1286, 236, *5 mate\标1.png|1|0|ImageSearch||Screen|||7|
-6|If Image/Pixel Found||1|0|If_Statement|||||9|
-7|SoundBeep|140, 100|1|0|SoundBeep|||||11|
-8|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||12|
-9|[Pause]||1|300|Sleep|||||13|
-10|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||14|
-11|[End If]|EndIf|1|0|If_Statement|||||15|
-12|If Image/Pixel Not Found||1|0|If_Statement|||||16|
-13|SoundBeep|4444, 33|1|0|SoundBeep|||||18|
-14|SoundBeep|4444, 33|1|0|SoundBeep|||||19|
-15|[Pause]||1|300|Sleep|||||20|
-16|Continue, Continue, FoundX, FoundY, 0|612, 74, 1305, 227, *5 mate\标1.png|1|0|ImageSearch||Screen|||21|
-17|If Image/Pixel Not Found||1|0|If_Statement|||||23|
-18|SoundBeep|188, 100|1|0|SoundBeep|||||25|
-19|[Pause]||1|300|Sleep|||||26|
-20|Backspace|{Backspace}|1|0|ControlSend||ahk_exe rf4_x64.exe|||27|
-21|[End If]|EndIf|1|0|If_Statement|||||28|
-22|[End If]|EndIf|1|0|If_Statement|||||29|
+3|Continue, Continue, FoundX, FoundY, 0|551, 79, 1323, 229, *5 mate\星1.png|1|0|ImageSearch||Screen|||5|
+4|If Image/Pixel Not Found||1|0|If_Statement|||||7|
+5|Continue, Continue, FoundX, FoundY, 0|612, 72, 1286, 236, *5 mate\标1.png|1|0|ImageSearch||Screen|||9|
+6|If Image/Pixel Found||1|0|If_Statement|||||11|
+7|SoundBeep|140, 100|1|0|SoundBeep|||||13|
+8|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||14|
+9|[Pause]||1|300|Sleep|||||15|
+10|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||16|
+11|ToolTip|入户, A_ScreenWidth // 2, A_ScreenHeight // 2|1|250|ToolTip|||||4|
+12|[End If]|EndIf|1|0|If_Statement|||||17|
+13|If Image/Pixel Not Found||1|0|If_Statement|||||18|
+14|SoundBeep|4444, 33|1|0|SoundBeep|||||20|
+15|SoundBeep|4444, 33|1|0|SoundBeep|||||21|
+16|[Pause]||1|300|Sleep|||||22|
+17|Continue, Continue, FoundX, FoundY, 0|612, 74, 1305, 227, *5 mate\标1.png|1|0|ImageSearch||Screen|||23|
+18|If Image/Pixel Not Found||1|0|If_Statement|||||25|
+19|SoundBeep|188, 100|1|0|SoundBeep|||||27|
+20|[Pause]||1|300|Sleep|||||28|
+21|Backspace|{Backspace}|1|0|ControlSend||ahk_exe rf4_x64.exe|||29|
+22|ToolTip|丢弃, A_ScreenWidth // 2, A_ScreenHeight // 2|1|250|ToolTip|||||4|
 23|[End If]|EndIf|1|0|If_Statement|||||30|
-24|If Image/Pixel Found||1|0|If_Statement|||||31|
-25|SoundBeep|140, 100|1|0|SoundBeep|||||33|
-26|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||34|
-27|[Pause]||1|300|Sleep|||||35|
+24|[End If]|EndIf|1|0|If_Statement|||||31|
+25|[End If]|EndIf|1|0|If_Statement|||||32|
+26|If Image/Pixel Found||1|0|If_Statement|||||33|
+27|SoundBeep|140, 100|1|0|SoundBeep|||||35|
 28|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||36|
-29|[End If]|EndIf|1|0|If_Statement|||||37|
+29|[Pause]||1|300|Sleep|||||37|
+30|Space|{Space}|1|0|ControlSend||ahk_exe rf4_x64.exe|||38|
+31|[End If]|EndIf|1|0|If_Statement|||||39|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan4()
 Context=None|
 Groups=Start:1
 1|[FunctionStart]|scan4|1|0|UserFunction|Local| / |||1|
 02|beep|_null := |1|0|Function|||||3|
-3|Continue, Continue, FoundX, FoundY, 0|626, 965, 759, 1005, *88 mate\T.png|1|0|ImageSearch||Screen|||3|
-4|If Image/Pixel Found||1|0|If_Statement|||||5|
-5|Enter|{Enter Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||7|
-6|[Pause]|Random|1|666|Sleep|777||||8|
-7|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||9|
-8|[End If]|EndIf|1|0|If_Statement|||||10|
-9|[Pause]||1|4200|Sleep|||||11|
-10|SoundBeep|7777, 33|1|0|SoundBeep|||||12|
-11|SoundBeep|4444, 33|1|0|SoundBeep|||||13|
-12|SoundBeep|7777, 33|1|0|SoundBeep|||||14|
-13|eat|_null := |1|0|Function|||||15|
+3|ToolTip|抛竿, A_ScreenWidth // 2, A_ScreenHeight // 2|1|250|ToolTip|||||3|
+4|Continue, Continue, FoundX, FoundY, 0|626, 965, 759, 1005, *88 mate\T.png|1|0|ImageSearch||Screen|||5|
+5|If Image/Pixel Found||1|0|If_Statement|||||7|
+6|Enter|{Enter Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||9|
+7|[Pause]|Random|1|666|Sleep|777||||10|
+8|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||11|
+9|[End If]|EndIf|1|0|If_Statement|||||12|
+10|[Pause]||1|4200|Sleep|||||13|
+11|SoundBeep|7777, 33|1|0|SoundBeep|||||14|
+12|SoundBeep|4444, 33|1|0|SoundBeep|||||15|
+13|SoundBeep|7777, 33|1|0|SoundBeep|||||16|
+14|eat|_null := |1|0|Function|||||17|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|eat()
 Context=None|
 Groups=Start:1
 1|[FunctionStart]|eat|1|0|UserFunction|Local| / |||1|
-2|Continue, Continue, FoundX, FoundY, 0|188, 931, 220, 952, *22 mate\红条.png|1|0|ImageSearch||Screen|||3|
-3|If Image/Pixel Found||1|0|If_Statement|||||5|
-4|[Pause]|Random|1|555|Sleep|666||||7|
-5|SoundBeep|7777, 33|1|0|SoundBeep|||||8|
-6|SoundBeep|4444, 33|1|0|SoundBeep|||||9|
-7|[Pause]|NoRandom|1|999|Sleep|||||10|
-8|[Pause]||1|300|Sleep|||||11|
-9|[End If]|EndIf|1|0|If_Statement|||||12|
-10|[Pause]||1|300|Sleep|||||13|
-11|Continue, Continue, FoundX, FoundY, 0|189, 988, 228, 1017, *22 mate\红条.png|1|0|ImageSearch||Screen|||14|
-12|If Image/Pixel Found||1|0|If_Statement|||||16|
-13|[Pause]||1|100|Sleep|||||18|
-14|SoundBeep|7777, 33|1|0|SoundBeep|||||19|
-15|SoundBeep|4444, 33|1|0|SoundBeep|||||20|
-16|SoundBeep|7777, 33|1|0|SoundBeep|||||21|
-17|5|{5}|1|222|ControlSend||ahk_exe rf4_x64.exe|||22|
-18|[End If]|EndIf|1|0|If_Statement|||||24|
-19|[Pause]||1|500|Sleep|||||25|
+2|ToolTip|吃东西, A_ScreenWidth // 2, A_ScreenHeight // 2|1|250|ToolTip|||||13|
+3|Continue, Continue, FoundX, FoundY, 0|188, 931, 220, 952, *22 mate\红条.png|1|0|ImageSearch||Screen|||3|
+4|If Image/Pixel Found||1|0|If_Statement|||||5|
+5|[Pause]|Random|1|555|Sleep|666||||7|
+6|SoundBeep|7777, 33|1|0|SoundBeep|||||8|
+7|SoundBeep|4444, 33|1|0|SoundBeep|||||9|
+8|[Pause]|NoRandom|1|999|Sleep|||||10|
+9|[Pause]||1|300|Sleep|||||11|
+10|[End If]|EndIf|1|0|If_Statement|||||12|
+11|[Pause]||1|300|Sleep|||||13|
+12|Continue, Continue, FoundX, FoundY, 0|189, 988, 228, 1017, *22 mate\红条.png|1|0|ImageSearch||Screen|||14|
+13|If Image/Pixel Found||1|0|If_Statement|||||16|
+14|[Pause]||1|100|Sleep|||||18|
+15|SoundBeep|7777, 33|1|0|SoundBeep|||||19|
+16|SoundBeep|4444, 33|1|0|SoundBeep|||||20|
+17|SoundBeep|7777, 33|1|0|SoundBeep|||||21|
+18|5|{5}|1|222|ControlSend||ahk_exe rf4_x64.exe|||22|
+19|[End If]|EndIf|1|0|If_Statement|||||24|
+20|[Pause]||1|500|Sleep|||||25|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|done()
 Context=None|
@@ -477,14 +499,15 @@ Groups=Start:1
 4|[Pause]||1|300|Sleep|||||8|
 5|Continue, Continue, FoundX, FoundY, 0|1229, 959, 1245, 966, *77 C:\cygwin64\home\lee\RF4BOT\mate\准备完毕.png|1|0|ImageSearch||Screen|||9|
 6|If Image/Pixel Found||1|0|If_Statement|||||11|
-7|[Pause]||1|300|Sleep|||||13|
-8|\|{\ Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||14|
-9|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||15|
-10|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||16|
-11|[Assign Variable]|godone := 1|1|0|Variable|Expression||||17|
-012|SoundPlay|C:\cygwin64\home\lee\RF4BOT\mate\1.wav|1|250|SoundPlay|||||18|
-13|[End If]|EndIf|1|0|If_Statement|||||20|
-14|[End If]|EndIf|1|0|If_Statement|||||21|
+7|ToolTip|线收完毕, A_ScreenWidth // 2, A_ScreenHeight // 2|1|250|ToolTip|||||13|
+8|[Pause]||1|300|Sleep|||||15|
+9|\|{\ Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||16|
+10|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||17|
+11|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||18|
+12|[Assign Variable]|godone := 1|1|0|Variable|Expression||||19|
+013|SoundPlay|C:\cygwin64\home\lee\RF4BOT\mate\1.wav|1|250|SoundPlay|||||20|
+14|[End If]|EndIf|1|0|If_Statement|||||20|
+15|[End If]|EndIf|1|0|If_Statement|||||21|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|allsave
 Context=None|
@@ -499,19 +522,19 @@ Context=None|
 Groups=Start:1
 1|[FunctionStart]|outloop|1|0|UserFunction|Local|godone, go1 / |||1|
 2|Evaluate Expression|go1=9000|1|0|If_Statement|||||4|
-3|[Pause]|Random|1|333|Sleep|444||||6|
-4|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||7|
-5|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||8|
-6|[Assign Variable]|godone := 1|1|0|Variable|Expression||||9|
-7|[Assign Variable]|go1 := 0|1|0|Variable|Expression||||10|
-8|[End If]|EndIf|1|0|If_Statement|||||11|
+3|ToolTip|收线超时, A_ScreenWidth // 2, A_ScreenHeight // 2|1|250|ToolTip|||||6|
+4|[Pause]|Random|1|333|Sleep|444||||8|
+5|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||9|
+6|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||10|
+7|[Assign Variable]|godone := 1|1|0|Variable|Expression||||11|
+8|[Assign Variable]|go1 := 0|1|0|Variable|Expression||||12|
+9|[End If]|EndIf|1|0|If_Statement|||||13|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|beep()
 Context=None|
 Groups=Start:1
 1|[FunctionStart]|beep|1|0|UserFunction|Local| / |||1|
 2|SoundBeep|7777, 33|1|0|SoundBeep|||||3|
-3|SoundBeep|4444, 33|1|0|SoundBeep|||||4|
-4|SoundBeep|7777, 33|1|0|SoundBeep|||||5|
+3|ToolTip|入户, A_ScreenWidth // 2, A_ScreenHeight // 2|1|250|ToolTip|||||4|
 
 */
