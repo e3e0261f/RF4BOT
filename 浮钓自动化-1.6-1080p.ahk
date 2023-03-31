@@ -115,16 +115,12 @@ scan21()
         ControlSend, , {\ Down}, ahk_exe rf4_x64.exe
         ControlSend, , {RShift Down}, ahk_exe rf4_x64.exe
         ControlSend, , {Enter Down}, ahk_exe rf4_x64.exe
+        go1 += 1
+        SoundBeep, 120, 100
+        outloop()
+        done()
         CoordMode, Pixel, Screen
-        ImageSearch, FoundX, FoundY, 1229, 959, 1245, 966, *77 C:\cygwin64\home\lee\RF4BOT\mate\准备完毕.png
-        If (ErrorLevel = 0)
-        {
-            SoundPlay, E:\remind.wav
-            go1 += 1
-            done()
-        }
-        CoordMode, Pixel, Screen
-        ImageSearch, FoundX, FoundY, 925, 776, 999, 833, *1 mate\经验点数.png
+        ImageSearch, FoundX, FoundY, 845, 780, 1094, 830, *1 mate\经验点数.png
         If (ErrorLevel = 0)
         {
             ControlSend, , {RShift Up}, ahk_exe rf4_x64.exe
@@ -136,6 +132,7 @@ scan21()
         }
     }
     Until, godone=1
+    SoundPlay, E:\remind.wav
     ControlSend, , {RShift Up}, ahk_exe rf4_x64.exe
     ControlSend, , {\ Up}, ahk_exe rf4_x64.exe
     ControlSend, , {Enter Up}, ahk_exe rf4_x64.exe
@@ -229,13 +226,20 @@ done()
 {
     global godone
     CoordMode, Pixel, Screen
-    ImageSearch, FoundX, FoundY, 626, 965, 759, 1005, *88 mate\T.png
+    ImageSearch, FoundX, FoundY, 1229, 959, 1245, 966, *77 C:\cygwin64\home\lee\RF4BOT\mate\准备完毕.png
     If (ErrorLevel = 0)
     {
-        ControlSend, , {\ Up}, ahk_exe rf4_x64.exe
-        ControlSend, , {RShift Up}, ahk_exe rf4_x64.exe
-        ControlSend, , {Enter Up}, ahk_exe rf4_x64.exe
-        godone := 1
+        Sleep, 300
+        CoordMode, Pixel, Screen
+        ImageSearch, FoundX, FoundY, 1229, 959, 1245, 966, *77 C:\cygwin64\home\lee\RF4BOT\mate\准备完毕.png
+        If (ErrorLevel = 0)
+        {
+            Sleep, 300
+            ControlSend, , {\ Up}, ahk_exe rf4_x64.exe
+            ControlSend, , {RShift Up}, ahk_exe rf4_x64.exe
+            ControlSend, , {Enter Up}, ahk_exe rf4_x64.exe
+            godone := 1
+        }
     }
 }
 
@@ -256,6 +260,7 @@ outloop()
         ControlSend, , {RShift Up}, ahk_exe rf4_x64.exe
         ControlSend, , {Enter Up}, ahk_exe rf4_x64.exe
         godone := 1
+        go1 := 0
     }
 }
 
@@ -370,27 +375,25 @@ Groups=Start:1
 15|\|{\ Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||18|
 16|RShift|{RShift Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||19|
 17|Enter|{Enter Down}|1|0|ControlSend||ahk_exe rf4_x64.exe|||20|
-18|Continue, Continue, FoundX, FoundY, 0|1229, 959, 1245, 966, *77 C:\cygwin64\home\lee\RF4BOT\mate\准备完毕.png|1|0|ImageSearch||Screen|||21|
-19|If Image/Pixel Found||1|0|If_Statement|||||23|
-20|SoundPlay|E:\remind.wav|1|0|SoundPlay|||||25|
-21|[Add Variable]|go1 += 1|1|0|Variable|Expression||||26|
-022|outloop|_null := |1|0|Function|||||27|
-23|done|_null := |1|0|Function|||||27|
-24|[End If]|EndIf|1|0|If_Statement|||||28|
-25|Continue, Continue, FoundX, FoundY, 0|925, 776, 999, 833, *1 mate\经验点数.png|1|0|ImageSearch||Screen|||29|
-26|If Image/Pixel Found||1|0|If_Statement|||||31|
-27|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||33|
-28|\|{\ Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||34|
-29|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||35|
-30|[Assign Variable]|godone := 1|1|0|Variable|Expression||||36|
-31|[Pause]||1|300|Sleep|||||37|
-32|scan3|_null := |1|0|Function|||||38|
-33|[End If]|EndIf|1|0|If_Statement|||||39|
-34|[LoopEnd]|LoopEnd|1|0|Loop|||||40|
-35|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||42|
-36|\|{\ Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||43|
-37|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||44|
-38|[Assign Variable]|godone := 0|1|0|Variable|Expression||||45|
+18|[Add Variable]|go1 += 1|1|250|Variable|Expression||||21|
+19|SoundBeep|120, 100|1|0|SoundBeep|||||22|
+20|outloop|_null := |1|0|Function|||||23|
+21|done|_null := |1|0|Function|||||24|
+22|Continue, Continue, FoundX, FoundY, 0|845, 780, 1094, 830, *1 mate\经验点数.png|1|0|ImageSearch||Screen|||25|
+23|If Image/Pixel Found||1|0|If_Statement|||||27|
+24|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||29|
+25|\|{\ Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||30|
+26|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||31|
+27|[Assign Variable]|godone := 1|1|0|Variable|Expression||||32|
+28|[Pause]||1|300|Sleep|||||33|
+29|scan3|_null := |1|0|Function|||||34|
+30|[End If]|EndIf|1|0|If_Statement|||||35|
+31|[LoopEnd]|LoopEnd|1|0|Loop|||||36|
+32|SoundPlay|E:\remind.wav|1|0|SoundPlay|||||38|
+33|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||39|
+34|\|{\ Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||40|
+35|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||41|
+36|[Assign Variable]|godone := 0|1|0|Variable|Expression||||42|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|scan3()
 Context=None|
@@ -469,13 +472,19 @@ Groups=Start:1
 Context=None|
 Groups=Start:1
 1|[FunctionStart]|done|1|0|UserFunction|Local|godone / |||1|
-2|Continue, Continue, FoundX, FoundY, 0|626, 965, 759, 1005, *88 mate\T.png|1|0|ImageSearch||Screen|||4|
+2|Continue, Continue, FoundX, FoundY, 0|1229, 959, 1245, 966, *77 C:\cygwin64\home\lee\RF4BOT\mate\准备完毕.png|1|0|ImageSearch||Screen|||4|
 3|If Image/Pixel Found||1|0|If_Statement|||||6|
-4|\|{\ Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||8|
-5|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||9|
-6|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||10|
-7|[Assign Variable]|godone := 1|1|0|Variable|Expression||||11|
-8|[End If]|EndIf|1|0|If_Statement|||||12|
+4|[Pause]||1|300|Sleep|||||8|
+5|Continue, Continue, FoundX, FoundY, 0|1229, 959, 1245, 966, *77 C:\cygwin64\home\lee\RF4BOT\mate\准备完毕.png|1|0|ImageSearch||Screen|||9|
+6|If Image/Pixel Found||1|0|If_Statement|||||11|
+7|[Pause]||1|300|Sleep|||||13|
+8|\|{\ Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||14|
+9|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||15|
+10|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||16|
+11|[Assign Variable]|godone := 1|1|0|Variable|Expression||||17|
+012|SoundPlay|C:\cygwin64\home\lee\RF4BOT\mate\1.wav|1|250|SoundPlay|||||18|
+13|[End If]|EndIf|1|0|If_Statement|||||20|
+14|[End If]|EndIf|1|0|If_Statement|||||21|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|allsave
 Context=None|
@@ -494,7 +503,8 @@ Groups=Start:1
 4|RShift|{RShift Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||7|
 5|Enter|{Enter Up}|1|0|ControlSend||ahk_exe rf4_x64.exe|||8|
 6|[Assign Variable]|godone := 1|1|0|Variable|Expression||||9|
-7|[End If]|EndIf|1|0|If_Statement|||||10|
+7|[Assign Variable]|go1 := 0|1|0|Variable|Expression||||10|
+8|[End If]|EndIf|1|0|If_Statement|||||11|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|beep()
 Context=None|
