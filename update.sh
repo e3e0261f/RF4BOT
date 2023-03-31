@@ -10,7 +10,7 @@ CURRENT_TIME=$(date +"%Y-%m-%d-%H-%M-%S")
 git commit -m "${CURRENT_TIME}"
 
 # 拉取最新代码
-git push origin master
+git push
 
 # 如果有子模块，请执行以下命令来更新子模块
 # git submodule update --init --recursive
