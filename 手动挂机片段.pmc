@@ -1,0 +1,10 @@
+﻿[PMC Globals]|None||
+[PMC Code v5.4.1]|F3||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro1
+Context=None|
+Groups=Start:1
+1|WinGetTitle|thiswindow|1|250|WinGetTitle||A||||
+2|WinSet|AlwaysOnTop, On|1|333|WinSet||ahk_exe rf4_x64.exe||||
+3|WinSet|Top, |1|333|WinSet||ahk_exe rf4_x64.exe||||
+4|WinSet|AlwaysOnTop, Toggle|1|333|WinSet||ahk_exe rf4_x64.exe||||
+5|[MsgBox]|%thiswindow%|1|0|MsgBox|0|||||
+
