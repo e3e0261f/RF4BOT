@@ -45,14 +45,14 @@ Loop
     If (ErrorLevel)
     {
         SoundBeep, 120, 100
-        Sleep, 1000
+        Sleep, 450
         SetTimer, CheckKeyState, -10
     }
 }
 Return
 
 CheckKeyState:
-If (GetKeyState("1", "P"))
+If (GetKeyState("CapsLock", "P"))
 {
     flag := true
 }
@@ -401,16 +401,16 @@ Groups=Start:1
 4|[LoopStart]|LoopStart|0|0|Loop|||||4|
 5|Continue, Continue, FoundX, FoundY|1345, 710, 1494, 784, 0xFF0201, 88, Fast RGB|1|0|PixelSearch||Screen|||6|
 6|If Image/Pixel Not Found||1|0|If_Statement|||||8|
-7|SoundBeep|120, 100|1|1000|SoundBeep|||||22|
-8|Run Once|CheckKeyState|1|10|SetTimer|||||12|
-9|[End If]|EndIf|1|0|If_Statement|||||13|
-010|DllCall|_null := "LibraryName\FunctionName", "Uint", arg1, "Uint", arg2, "Str", arg3|1|0|Function|||||14|
-11|[LoopEnd]|LoopEnd|1|0|Loop|||||14|
+7|SoundBeep|120, 100|1|450|SoundBeep|||||10|
+8|Run Once|CheckKeyState|1|10|SetTimer|||||14|
+9|[End If]|EndIf|1|0|If_Statement|||||15|
+010|DllCall|_null := "LibraryName\FunctionName", "Uint", arg1, "Uint", arg2, "Str", arg3|1|0|Function|||||16|
+11|[LoopEnd]|LoopEnd|1|0|Loop|||||16|
 
 [PMC Code v5.4.1]|||1|Screen,2,Fast,0,1,Event,-1,-1,1|1|CheckKeyState
 Context=None|
 Groups=Start:1
-1|Evaluate Expression|GetKeyState("1", "P")|1|0|If_Statement|||||1|
+1|Evaluate Expression|GetKeyState("CapsLock", "P")|1|0|If_Statement|||||1|
 2|[Assign Variable]|flag := true|1|0|Variable|Expression||||3|
 3|[End If]|EndIf|1|0|If_Statement|||||4|
 4|Compare Variables|flag = true|1|0|If_Statement|||||5|
@@ -599,7 +599,7 @@ Groups=Start:1
 11|[End If]|EndIf|1|0|If_Statement|||||14|
 12|eat|_null := |1|0|Function|||||15|
 13|WinActivate||1|0|WinActivate||%THISWINDOW%|||16|
-014|WinSet|AlwaysOnTop, Off|1|333|WinSet||ahk_id %THISWINDOW%|||16|
+014|WinSet|AlwaysOnTop, Off|1|333|WinSet||ahk_id %THISWINDOW%|||17|
 
 [PMC Code v5.4.1]|||1|Screen,2,Fast,0,1,Event,-1,-1,1|1|eat()
 Context=None|
